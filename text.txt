@@ -1,81 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Birthday Surprise 🎂</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: white;
+  text-align: center;
+}
 
-<!-- SLIDE 1 -->
-<div class="slide active" id="slide1">
-  <h2>Counting down to Chintu’s special day 💫</h2>
-  <p>You mean more to me than words can ever explain</p>
-  <p>A special celebration awaits you at midnight</p>
-  <h1 id="countdown">10</h1>
-</div>
+.slide {
+  display: none;
+  height: 100vh;
+  padding: 40px;
+  animation: fadeSlide 0.8s ease-in-out;
+}
 
-<!-- SLIDE 2 -->
-<div class="slide" id="slide2">
-  <h1>Happy Birthday Harshit 🎉</h1>
-  <p>It’s your birthday! Ready for your surprise?</p>
-  <button onclick="blastConfetti(); nextSlide(3)">Let’s Celebrate 🎈</button>
-</div>
+.active {
+  display: block;
+}
 
-<!-- SLIDE 3 -->
-<div class="slide" id="slide3">
-  <h2>It is your special day?</h2>
-  <button onclick="nextSlide(4)">Yes 😍</button>
-  <button onclick="nextSlide(4)">No 🙈</button>
-</div>
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-<!-- SLIDE 4 -->
-<div class="slide" id="slide4">
-  <h2>Do you wanna see what I made?</h2>
-  <button onclick="nextSlide(5)">Yes 💖</button>
-  <button onclick="nextSlide(5)">No 😜</button>
-</div>
+button {
+  padding: 12px 22px;
+  margin: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #ff4081;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-<!-- SLIDE 5 -->
-<div class="slide" id="slide5">
-  <h2>Have a look at it Sir Ji 😌</h2>
-  <button onclick="nextSlide(6)">Let’s Go 🚀</button>
-</div>
+button:hover {
+  transform: scale(1.1);
+}
 
-<!-- SLIDE 6 -->
-<div class="slide" id="slide6">
-  <h1>Let’s Celebrate 🎊</h1>
+#countdown {
+  font-size: 80px;
+}
 
-  <button onclick="showLight()">Turn On Lights 💡</button>
-  <button onclick="showBalloons()">Put Balloons 🎈</button>
-  <button onclick="showCake()">Bring Cake 🎂</button>
+#decorations div {
+  display: none;
+  font-size: 60px;
+  margin: 20px;
+}
 
-  <div id="decorations">
-    <div id="light">💡</div>
-    <div id="balloons">🎈🎈🎈</div>
-    <div id="cake">🎂</div>
-  </div>
+#balloons {
+  animation: float 2s infinite ease-in-out;
+}
 
-  <button onclick="blastConfetti(); nextSlide(7)">Next 💌</button>
-</div>
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
 
-<!-- SLIDE 7 -->
-<div class="slide" id="slide7">
-  <h1>Message for You Sir Ji 💝</h1>
-  <div class="envelope">
-    <p>
-      My sweetheart ❤️<br><br>
-      Happy Birthday cutieee 🎂<br>
-      I don’t tell you that I love you but I actually do.<br>
-      You mean a lot to me, be happy in your life and let me be…<br>
-      This birthday gives you some budhii 😉 and tells you what is right & wrong.<br><br>
-      Once again happy birthday mere rasmaliii 💕<br>
-      Love youuuu bachaaa 😘
-    </p>
-  </div>
-</div>
+#cake {
+  animation: pop 0.6s ease;
+}
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
+@keyframes pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+.envelope {
+  background: white;
+  color: #ff4081;
+  padding: 25px;
+  border-radius: 20px;
+  width: 85%;
+  margin: auto;
+}
